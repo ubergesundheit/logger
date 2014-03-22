@@ -5,6 +5,10 @@ require 'sequel'
 require 'haml'
 require 'pry'
 require 'date'
+require 'dotenv'
+
+#Dotenv
+Dotenv.load
 
 # connect to the database
 DB = Sequel.sqlite('test.db')
@@ -25,8 +29,8 @@ set :bind, '0.0.0.0'
 
 set :haml, :format => :html5
 enable :sessions
-set :session_secret, ENV["app_secret"]
-set :password, ENV["app_password"]
+set :session_secret, ENV["APP_SECRET"]
+set :password, ENV["APP_PASSWORD"]
 set :home, '/'
 
 get '/' do
