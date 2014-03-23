@@ -3,7 +3,6 @@ require 'sinatra/json'
 require 'sinatra/simple_auth'
 require 'sequel'
 require 'haml'
-require 'pry'
 require 'date'
 require 'dotenv'
 
