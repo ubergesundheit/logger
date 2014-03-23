@@ -3,6 +3,7 @@ GEM
   specs:
     backports (3.6.0)
     daemons (1.1.9)
+    dotenv (0.10.0)
     eventmachine (1.0.3)
     haml (4.0.5)
       tilt
@@ -37,6 +38,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   haml
   sequel
   sinatra
