@@ -11,7 +11,12 @@ Dotenv.load
 
 # connect to the database
 #DB = Sequel.sqlite('test.db')
-DB = Sequel.connect(ENV['OPENSHIFT_POSTGRESQL_DB_URL'])
+DB = Sequel.postgres(
+  host: ENV['OPENSHIFT_POSTGRESQL_HOST'],
+  user: ENV['OPENSHIFT_POSTGRESQL_USERNAME'],
+  password: ENV['OPENSHIFT_POSTGRESQL_PASSWORD'],
+  database: ENV['OPENSHIFT_APP_NAME']
+)
 
 #try to create a table, fails if already created
 unless DB.table_exists? :items
