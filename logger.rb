@@ -10,7 +10,8 @@ require 'dotenv'
 Dotenv.load
 
 # connect to the database
-DB = Sequel.sqlite('test.db')
+#DB = Sequel.sqlite('test.db')
+DB = Sequel.postgres('OPENSHIFT_POSTGRESQL_DB_URL')
 
 #try to create a table, fails if already created
 unless DB.table_exists? :items
@@ -24,13 +25,7 @@ end
 class Item < Sequel::Model
 end
 
-set :bind, '0.0.0.0'
 
-set :haml, :format => :html5
-enable :sessions
-set :session_secret, ENV["APP_SECRET"]
-set :password, ENV["APP_PASSWORD"]
-set :home, '/'
 
 get '/' do
   protected!
