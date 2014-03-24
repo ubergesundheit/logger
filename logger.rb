@@ -34,6 +34,11 @@ end
 
 get '/' do
   protected!
+  if Item.count != 0
+    @value = Item.order(:date).last.what
+  else
+    @value = ''
+  end
   haml :index
 end
 

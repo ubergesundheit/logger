@@ -1,5 +1,5 @@
 %form{action: '/', method:'POST'}
-  %input{type: 'number', name:'what', value: Item.order(:date).last.what}
+  %input{type: 'number', name:'what', value: @value}
   %input{type: 'submit'}
 
 :javascript
