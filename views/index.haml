@@ -1,6 +1,7 @@
-%form{action: '/', method:'POST'}
-  %input{type: 'number', name:'what', step:0.1, value: @value}
-  %input{type: 'submit'}
+- if authorized?
+  %form{action: '/', method:'POST'}
+    %input{type: 'number', name:'what', step:0.1, value: @value}
+    %input{type: 'submit'}
 
 :javascript
   var margin = {top: 20, right: 20, bottom: 30, left: 50},

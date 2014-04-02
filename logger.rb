@@ -10,13 +10,13 @@ require 'dotenv'
 Dotenv.load
 
 # connect to the database
-#DB = Sequel.sqlite('test.db')
-DB = Sequel.postgres(
-  host: ENV['OPENSHIFT_POSTGRESQL_HOST'],
-  user: ENV['OPENSHIFT_POSTGRESQL_USERNAME'],
-  password: ENV['OPENSHIFT_POSTGRESQL_PASSWORD'],
-  database: ENV['OPENSHIFT_APP_NAME']
-)
+DB = Sequel.sqlite('test.db')
+#DB = Sequel.postgres(
+#  host: ENV['OPENSHIFT_POSTGRESQL_HOST'],
+#  user: ENV['OPENSHIFT_POSTGRESQL_USERNAME'],
+#  password: ENV['OPENSHIFT_POSTGRESQL_PASSWORD'],
+#  database: ENV['OPENSHIFT_APP_NAME']
+#)
 
 #try to create a table, fails if already created
 unless DB.table_exists? :items
@@ -33,7 +33,6 @@ end
 
 
 get '/' do
-  protected!
   if Item.count != 0
     @value = Item.order(:date).last.what
   else
@@ -47,7 +46,6 @@ get '/login/?' do
 end
 
 get '/data' do
-  protected!
   json Item.order(:date).map { |item| { date: item.date.iso8601, what: item.what.to_f } }
 end
 
