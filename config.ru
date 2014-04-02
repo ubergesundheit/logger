@@ -1,5 +1,10 @@
 require './logger'
 
+# serve d3 through rack
+map "/d3.js" do
+    run Rack::File.new("./d3.v3.min.js")
+end
+
 set :environment, :production
 
 #log = File.new("sinatra.log", "a")
