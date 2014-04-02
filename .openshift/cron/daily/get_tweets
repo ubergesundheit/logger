@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'twitter'
-require 'pry'
 require 'sequel'
 require 'date'
 require 'dotenv'
