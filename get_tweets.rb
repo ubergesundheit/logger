@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require 'twitter'
 require 'sequel'
 require 'date'
@@ -15,8 +13,8 @@ DB = Sequel.postgres(
   database: ENV['OPENSHIFT_APP_NAME']
 )
 
-#class Item < Sequel::Model
-#end
+class Item < Sequel::Model
+end
 
 client = Twitter::REST::Client.new do |config|
   config.consumer_key    = ENV['TWITTER_CONSUMER_KEY']
