@@ -1,3 +1,4 @@
+require './get_tweets'
 require './logger'
 
 # serve d3 through rack
